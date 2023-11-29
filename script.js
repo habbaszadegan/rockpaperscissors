@@ -5,57 +5,81 @@ function game () {
 
         switch (randomChoice) {
             case 0:
-                return "rock";
+                return "Rock";
                 break;
             case 1:
-                return "paper";
+                return "Paper";
                 break;
             case 2:
-                return "scissors";
+                return "Scissors";
                 break;
         }
     }
 
-    const rock = document.querySelector('.rock.btn');
-    const paper = document.querySelector('.paper.btn');
-    const scissors = document.querySelector('.scissors.btn');
+    const buttons = document.querySelectorAll('.btn');
 
-    const button = document.querySelector('.btn');
+    const results = document.querySelector('#results');
 
-    button.addEventListener('click', () => {
-        console.log(playRound());
-    })
+    
+    for (const button of buttons) {
+        button.addEventListener('click', () => {
+            const playerChoice = button.textContent; // Capture player's choice
+            playRound(playerChoice, getComputerChoice());
+        });
+    }
+
+    let pScore = 0;
+    let cScore = 0;
 
     function playRound(playerSelection, computerSelection) {
+        console.log(playerSelection, computerSelection);
 
-        if (playerSelection == "rock" && computerSelection == "scissors" || 
-            playerSelection == "paper" && computerSelection == "rock" ||
-            playerSelection == "scissors" && computerSelection == "paper") {
-                pScore ++;
-                return `You win! ${playerSelection} beats ${computerSelection}. Score: Player ${pScore}, Computer ${cScore}`;
+        if (playerSelection == 'Rock' && computerSelection == 'Scissors' || 
+            playerSelection == 'Paper' && computerSelection == 'Rock' ||
+            playerSelection == 'Scissors' && computerSelection == 'Paper') {
+                pScore++;
+                results.textContent = `You win! ${playerSelection} beats ${computerSelection}. Score: Player ${pScore}, Computer ${cScore}`;
         } else if (
-            playerSelection == "rock" && computerSelection == "paper" || 
-            playerSelection == "paper" && computerSelection == "scissors" ||
-            playerSelection == "scissors" && computerSelection == "rock"
+            playerSelection == 'Rock' && computerSelection == 'Paper' || 
+            playerSelection == 'Paper' && computerSelection == 'Scissors' ||
+            playerSelection == 'Scissors' && computerSelection == 'Rock'
         ) {
             cScore++;
-            return `You lose :( ${computerSelection} beats ${playerSelection}. Score: Player ${pScore}, Computer ${cScore}`;
+            results.textContent = `You lose :( ${computerSelection} beats ${playerSelection}. Score: Player ${pScore}, Computer ${cScore}`;
         } else if (
-            playerSelection == "rock" && computerSelection == "rock" || 
-            playerSelection == "paper" && computerSelection == "paper" ||
-            playerSelection == "scissors" && computerSelection == "scissors"
-        ){
-            return "It's a tie :O";
-        } else {
-            return "Please input rock, paper, or scissors";
+            playerSelection == 'Rock' && computerSelection == 'Rock' || 
+            playerSelection == 'Paper' && computerSelection == 'Paper' ||
+            playerSelection == 'Scissors' && computerSelection == 'Scissors'
+        ) {
+            results.textContent = "It's a tie :O";
+        }
+
+        if (pScore == 5) {
+            results.textContent = `Player wins ${pScore} to ${cScore}! Woop Woop!`;
+            pScore = 0;
+            cScore = 0;
+        } else if (cScore == 5) {
+            results.textContent = `Computer wins ${cScore} to ${pScore}. Womp Womp.`;
+            pScore = 0;
+            cScore = 0;
         }
     }
 
-    console.log (playRound(promptInput, getComputerChoice()));
 
-    // let pScore = 0;
-    // let cScore = 0;
+    
+}
 
+
+console.log(game());
+
+
+// OUTDATED CODE
+
+
+
+    // console.log (playRound(button, getComputerChoice()));
+
+    
     // function firstRound () {
     //     let promptInput = prompt("Rock, Paper or Scissors?").toLowerCase();
 
@@ -220,15 +244,3 @@ function game () {
     // }
 
     // console.log (fifthRound());
-
-    if (pScore > cScore) {
-        console.log(`Player wins ${pScore} to ${cScore}! Woop Woop!`);
-    } else if (pScore < cScore) {
-        console.log(`Computer wins ${cScore} to ${pScore}. Womp Womp.`);
-    } else {
-        console.log(`It's a tie. Play again?`);
-    }
-}
-
-
-console.log (game());
