@@ -7,7 +7,7 @@ function game () {
             case 0:
                 return "Rock";
                 break;
-            case 1:
+            case 1:z
                 return "Paper";
                 break;
             case 2:
