@@ -72,6 +72,64 @@ function game () {
 
 console.log(game());
 
+// From the second time I did this assignment:
+
+// function getComputerChoice() {
+    
+//     let randomChoice = Math.floor(Math.random() * 3);
+
+//     switch (randomChoice) {
+//         case 0:
+//             return 'rock';
+//         case 1:
+//             return 'paper';
+//         case 2:
+//             return 'scissors';
+//     }
+// }
+
+// function getPlayerChoice () {
+
+//     let playerChoice = prompt('Rock, Paper, or Scissors?', '').toLowerCase();
+
+//     while (playerChoice != 'rock' && playerChoice !='paper' && playerChoice != 'scissors') {
+//         playerChoice = prompt('Wrong entry. Try again');
+//     }
+
+//     return playerChoice;
+// }
+
+// function playGame() {
+
+//     let playerScore = 0;
+//     let computerScore = 0;
+
+//     function playRound (humanChoice, computerChoice) {
+
+//         if (humanChoice == 'rock' && computerChoice == 'scissors' ||
+//             humanChoice == 'scissors' && computerChoice == 'paper' ||
+//             humanChoice == 'paper' && computerChoice == 'rock') {
+//                 playerScore++;
+//                 return `Player wins! Player score: ${playerScore} Computer score: ${computerScore}`;
+//         } else if (computerChoice == 'rock' && humanChoice == 'scissors' ||
+//             computerChoice == 'scissors' && humanChoice == 'paper' ||
+//             computerChoice == 'paper' && humanChoice == 'rock') {
+//                 computerScore++;
+//                 return `Computer wins! Player score: ${playerScore} Computer score: ${computerScore}`;
+//         } else {
+//             return `It's a tie! Player score: ${playerScore} Computer score: ${computerScore}`;
+//         }
+//     }
+
+//     while (playerScore != 5 && computerScore != 5) {    // Repeatedly plays the game until 5 wins occur
+//         console.log(playRound(getPlayerChoice(), getComputerChoice()));
+//     }
+// }
+
+// playGame();
+
+
+
 
 // OUTDATED CODE
 
