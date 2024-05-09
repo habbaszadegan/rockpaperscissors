@@ -74,29 +74,21 @@ console.log(game());
 
 // From the second time I did this assignment:
 
+// let allBtns = document.querySelectorAll('button');
+// let scoreDisplay = document.querySelector('.score-display');
+
 // function getComputerChoice() {
     
 //     let randomChoice = Math.floor(Math.random() * 3);
 
 //     switch (randomChoice) {
 //         case 0:
-//             return 'rock';
+//             return 'Rock';
 //         case 1:
-//             return 'paper';
+//             return 'Paper';
 //         case 2:
-//             return 'scissors';
+//             return 'Scissors';
 //     }
-// }
-
-// function getPlayerChoice () {
-
-//     let playerChoice = prompt('Rock, Paper, or Scissors?', '').toLowerCase();
-
-//     while (playerChoice != 'rock' && playerChoice !='paper' && playerChoice != 'scissors') {
-//         playerChoice = prompt('Wrong entry. Try again');
-//     }
-
-//     return playerChoice;
 // }
 
 // function playGame() {
@@ -106,29 +98,49 @@ console.log(game());
 
 //     function playRound (humanChoice, computerChoice) {
 
-//         if (humanChoice == 'rock' && computerChoice == 'scissors' ||
-//             humanChoice == 'scissors' && computerChoice == 'paper' ||
-//             humanChoice == 'paper' && computerChoice == 'rock') {
+//         humanWinConditions = 
+//             humanChoice == 'Rock' && computerChoice == 'Scissors' ||
+//             humanChoice == 'Scissors' && computerChoice == 'Paper' ||
+//             humanChoice == 'Paper' && computerChoice == 'Rock';
+
+//         computerWinConditions = 
+//             computerChoice == 'Rock' && humanChoice == 'Scissors' ||
+//             computerChoice == 'Scissors' && humanChoice == 'Paper' ||
+//             computerChoice == 'Paper' && humanChoice == 'Rock';
+
+//         if (humanWinConditions) {
 //                 playerScore++;
-//                 return `Player wins! Player score: ${playerScore} Computer score: ${computerScore}`;
-//         } else if (computerChoice == 'rock' && humanChoice == 'scissors' ||
-//             computerChoice == 'scissors' && humanChoice == 'paper' ||
-//             computerChoice == 'paper' && humanChoice == 'rock') {
+//                 scoreDisplay.textContent = `Player wins! ${humanChoice} beats ${computerChoice}! Player score: ${playerScore} Computer score: ${computerScore}`;
+//         } else if (computerWinConditions) {
 //                 computerScore++;
-//                 return `Computer wins! Player score: ${playerScore} Computer score: ${computerScore}`;
+//                 scoreDisplay.textContent = `Computer wins! ${computerChoice} beats ${humanChoice}! Player score: ${playerScore} Computer score: ${computerScore}`;
 //         } else {
-//             return `It's a tie! Player score: ${playerScore} Computer score: ${computerScore}`;
+//             scoreDisplay.textContent = `It's a tie! Player score: ${playerScore} Computer score: ${computerScore}`;
 //         }
 //     }
 
-//     while (playerScore != 5 && computerScore != 5) {    // Repeatedly plays the game until 5 wins occur
-//         console.log(playRound(getPlayerChoice(), getComputerChoice()));
+//     function winCondition() {
+//         if (playerScore == 5) {
+//             scoreDisplay.textContent = `Player wins!`;
+//             playerScore = 0;
+//             computerScore = 0;
+//         } else if (computerScore == 5){
+//             scoreDisplay.textContent = `Computer wins!`;
+//             playerScore = 0;
+//             computerScore = 0;
+//         }
 //     }
+
+//     allBtns.forEach(button => {
+//         button.addEventListener('click', () => {
+//             playerChoice = button.textContent;
+//             playRound(playerChoice, getComputerChoice());
+//             winCondition();
+//         })
+//     });
 // }
 
 // playGame();
-
-
 
 
 // OUTDATED CODE
